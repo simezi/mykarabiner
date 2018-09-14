@@ -1,0 +1,74 @@
+{
+	"title": "自分用の設定",
+	"rules": [{
+			"description": "英数キーで入力をトグルできるようにする",
+			"manipulators": [{
+				"type": "basic",
+				"description": "入力ソースが英字の場合、ひらがなにする（入力ソースがひらがなの場合、上書きの必要なし）",
+				"from": {
+					"key_code": "japanese_eisuu"
+				},
+				"to": [{
+					"key_code": "japanese_kana"
+				}],
+				"conditions": [{
+					"type": "input_source_if",
+					"input_sources": [{
+						"language": "en"
+					}]
+				}]
+			}]
+		},
+		{
+			"description": "半角キーで入力をトグルできるようにする（ 英＝＞ 日）",
+			"manipulators": [{
+				"type": "basic",
+				"description": "入力ソースが英字の場合、ひらがなにする",
+				"from": {
+					"key_code": "grave_accent_and_tilde"
+				},
+				"to": [{
+					"key_code": "japanese_kana"
+				}],
+				"conditions": [{
+					"type": "input_source_if",
+					"input_sources": [{
+						"language": "en"
+					}]
+				}]
+			}]
+		},
+		{
+			"description": "半角キーで入力をトグルできるようにする（日＝＞英））",
+			"manipulators": [{
+				"type": "basic",
+				"description": "入力ソースがひらがなの場合、英字にする",
+				"from": {
+					"key_code": "grave_accent_and_tilde"
+				},
+				"to": [{
+					"key_code": "japanese_eisuu"
+				}],
+				"conditions": [{
+					"type": "input_source_if",
+					"input_sources": [{
+						"language": "ja"
+					}]
+				}]
+			}]
+		},
+		{
+			"description": "'ろ'にバックスラッシュ、Shift+'ろ'にアンダースコアを割り当てる",
+			"manipulators": [{
+				"type": "basic",
+				"description": "'ろ'にバックスラッシュを割り当てる（Shift+'ろ'は、上書きの必要なし）",
+				"from": {
+					"key_code": "international1"
+				},
+				"to": [{
+					"key_code": "international3"
+				}]
+			}]
+		}
+	]
+}
